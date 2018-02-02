@@ -40,6 +40,26 @@ class IMyContentLayer(IDefaultBrowserLayer):
 
 class IFolklore(Interface):
 
+    id = schema.TextLine(
+        title=_(u'Census ID'),
+    )
+
+    c_start = schema.Date(
+        title=_(u'Census Start'),
+    )
+
+    c_end = schema.Date(
+        title=_(u'Census End'),
+    )
+
+    c_org = schema.TextLine(
+        title=_(u'Census Organization'),
+    )
+
+    c_prsn = schema.TextLine(
+        title=_(u'Census Person'),
+    )
+
     title = schema.TextLine(
         title=_(u'Title'),
         required=True,
@@ -74,6 +94,7 @@ class IFolklore(Interface):
 
     ethnic = schema.Tuple(
         title=_(u'Ethnic'),
+        description=_(u'One Value Per Line'),
         required=False,
         value_type=schema.TextLine(),
         missing_value=(),
@@ -81,6 +102,7 @@ class IFolklore(Interface):
 
     xingtai = schema.Tuple(
         title=_(u'XingTai'),
+        description=_(u'One Value Per Line'),
         required=False,
         value_type=schema.TextLine(),
         missing_value=(),
